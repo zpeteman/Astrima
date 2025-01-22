@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+import sys
+from astrima_interpeter import run_astrima
+
+VERSION = "0.6.16"
+
+def execute_file(file_path):
+    """Execute a `.rm` file."""
+    if not file_path.endswith(".rm"):
+        print("Error: The file must have a `.rm` extension.")
+        sys.exit(1)
+    try:
+        with open(file_path, 'r') as file:
+            code = file.read()
+            run_astrima(code)
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error while reading the file: {e}")
+        sys.exit(1)
+
+def interactive_mode():
+    """Launch the interactive Astrima interpreter."""
+    print("Astrima Interactive Interpreter (version {})".format(VERSION))
+    print("Type 'exit' to quit.\n")
+    code_lines = []
+    while True:
+        try:
+            line = input(">>> ").strip()
+            if line.lower() == "exit":
+                break
+            code_lines.append(line)
+            if line == "":
+                run_astrima("\n".join(code_lines))
+                code_lines = []
+        except KeyboardInterrupt:
+            print("\nExiting Astrima...")
+            break
+        except Exception as e:
+            print(f"Error: {e}")
+
+def show_version():
+    """Display the version of Astrima."""
+    print(f"Astrima version {VERSION}")
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--version":
+            show_version()
+        else:
+            execute_file(sys.argv[1])
+    else:
+        interactive_mode()
