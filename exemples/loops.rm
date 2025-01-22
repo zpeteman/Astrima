@@ -1,0 +1,5 @@
+shine "Counting to 5..."
+
+orbit i = 1 to 5 {
+    shine "Number: {i}"
+}

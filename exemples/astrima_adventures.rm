@@ -1,0 +1,16 @@
+shine "Welcome to the Astrima Adventure!"
+
+ask "What is your name, adventurer?" into name
+shine "Hello, {name}! Your journey begins now."
+
+ask "Do you want to go left or right?" into direction
+
+light direction == "left" {
+    shine "You walk left into a dark forest."
+}
+
+dark direction == "right" {
+    shine "You walk right and find a treasure chest!"
+}
+
+shine "Your adventure ends here. Thank you for playing!"

@@ -1,0 +1,17 @@
+ask "What is your favorite color?" into color
+
+light color == "red" {
+    shine "Red is the color of passion!"
+}
+
+dark color == "blue" {
+    shine "Blue is the color of calm!"
+}
+
+light color == "green" {
+    shine "Green is the color of nature!"
+}
+
+dark color == "yellow" {
+    shine "Yellow is the color of sunshine!"
+}

@@ -1,0 +1,4 @@
+shine "Welcome to Astrima!"
+
+ask "What's your name?" into user_name
+shine "Hello, {user_name}!"

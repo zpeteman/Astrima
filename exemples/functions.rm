@@ -1,0 +1,6 @@
+galaxy greet(name) {
+    shine "Hello, {name}!"
+}
+
+greet("Astrima User")
+greet("Rima")
